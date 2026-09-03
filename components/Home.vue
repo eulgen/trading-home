@@ -4,10 +4,10 @@
     <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur-md sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <!-- Logo & Brand -->
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
-            <svg class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        <NuxtLink to="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6 text-slate-950" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
             </svg>
           </div>
           <div>
@@ -16,7 +16,7 @@
             </span>
             <span class="hidden sm:inline-block ml-2 px-2 py-0.5 text-[10px] font-mono rounded bg-cyan-950 text-cyan-400 border border-cyan-800/50">PRO v4.0</span>
           </div>
-        </div>
+        </NuxtLink>
 
         <!-- Ticker Bar Preview -->
         <div class="hidden md:flex items-center gap-6 text-xs font-mono">
@@ -37,29 +37,19 @@
           </div>
         </div>
 
-        <!-- Right User Actions -->
+        <!-- Right User Auth Actions using BaseButton -->
         <div class="flex items-center gap-3">
-          <div class="flex items-center gap-2 bg-slate-900 border border-slate-800 rounded-lg p-1">
-            <button 
-              @click="activeTab = 'overview'" 
-              :class="activeTab === 'overview' ? 'bg-cyan-500 text-slate-950 font-semibold' : 'text-slate-400 hover:text-slate-200'"
-              class="px-3 py-1.5 text-xs rounded-md transition-all">
-              Dashboard
-            </button>
-            <button 
-              @click="activeTab = 'markets'" 
-              :class="activeTab === 'markets' ? 'bg-cyan-500 text-slate-950 font-semibold' : 'text-slate-400 hover:text-slate-200'"
-              class="px-3 py-1.5 text-xs rounded-md transition-all">
-              Markets
-            </button>
-          </div>
-          <button class="hidden sm:flex items-center justify-center w-9 h-9 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-white transition-colors relative">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-            </svg>
-            <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-            <span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-cyan-400"></span>
-          </button>
+          <NuxtLink to="/signin">
+            <BaseButton variant="ghost" size="sm">
+              Sign In
+            </BaseButton>
+          </NuxtLink>
+
+          <NuxtLink to="/signup">
+            <BaseButton variant="primary" size="sm">
+              Get Started
+            </BaseButton>
+          </NuxtLink>
         </div>
       </div>
     </header>
@@ -76,28 +66,35 @@
         <div class="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div class="space-y-2 max-w-2xl">
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-800/60 text-cyan-400 text-xs font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-              Real-time Market Engine Active
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              Real-time Algorithmic Engine Active
             </div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
-              Smart Trading & Portfolio Analytics
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-tight">
+              Next-Gen Trading & <span class="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Portfolio Intelligence</span>
             </h1>
             <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-              Track live market positions, execute automated orders, and optimize your portfolio with real-time algorithmic insights.
+              Track live positions, execute sub-millisecond orders, and manage digital asset portfolios with institutional precision.
             </p>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="flex items-center gap-3">
-            <button class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-              </svg>
-              New Order
-            </button>
-            <button class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-700 text-slate-200 font-semibold text-sm transition-all flex items-center gap-2">
-              Deposit Funds
-            </button>
+          <!-- Quick Navigation Actions -->
+          <div class="flex flex-wrap items-center gap-3">
+            <NuxtLink to="/signup">
+              <BaseButton variant="primary" size="lg">
+                <template #iconLeft>
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </template>
+                Open Free Account
+              </BaseButton>
+            </NuxtLink>
+
+            <NuxtLink to="/signin">
+              <BaseButton variant="secondary" size="lg">
+                Sign In to Platform
+              </BaseButton>
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -296,12 +293,14 @@
             </div>
           </div>
 
-          <!-- Submit Order Button -->
-          <button 
-            :class="orderType === 'buy' ? 'bg-emerald-500 hover:bg-emerald-400 shadow-emerald-500/20' : 'bg-rose-500 hover:bg-rose-400 shadow-rose-500/20'"
-            class="w-full py-3 rounded-xl text-slate-950 font-bold text-sm shadow-lg transition-all transform active:scale-95">
+          <!-- Submit Order Button using BaseButton -->
+          <BaseButton 
+            :variant="orderType === 'buy' ? 'primary' : 'danger'" 
+            size="lg" 
+            :full-width="true"
+          >
             {{ orderType === 'buy' ? 'EXECUTE LONG (BUY)' : 'EXECUTE SHORT (SELL)' }}
-          </button>
+          </BaseButton>
         </div>
       </div>
 
@@ -309,7 +308,7 @@
       <div class="rounded-2xl bg-slate-900/70 border border-slate-800 overflow-hidden shadow-xl">
         <div class="p-6 border-b border-slate-800 flex items-center justify-between">
           <h3 class="font-bold text-white text-base">Top Trading Pairs</h3>
-          <span class="text-xs text-slate-400">Live Streaming Data</span>
+          <span class="text-xs text-slate-400 font-mono">Live Streaming Data</span>
         </div>
 
         <div class="overflow-x-auto">
@@ -341,9 +340,9 @@
                 <td class="py-4 px-6 text-slate-400">${{ pair.high }}</td>
                 <td class="py-4 px-6 text-slate-400">${{ pair.volume }}</td>
                 <td class="py-4 px-6 text-right font-sans">
-                  <button class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-slate-300 font-semibold text-xs transition-all">
+                  <BaseButton variant="outline" size="sm">
                     Trade
-                  </button>
+                  </BaseButton>
                 </td>
               </tr>
             </tbody>
@@ -358,7 +357,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const activeTab = ref('overview')
 const timeframe = ref('1h')
 const orderType = ref('buy')
 
